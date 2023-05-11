@@ -6,18 +6,21 @@ void swap(int &a, int &b)
 
 std::vector<int>& fiveSort(std::vector<int> &numbers) 
 {
+  int lPointer=0;
   int rPointer=numbers.size()-1;
-  for(int lPointer=0; lPointer<rPointer; lPointer++)
+  while (lPointer<rPointer)
   {
-    std::cout<<std::endl<<"hello";
+
 
     if(numbers[lPointer]==5  &&  numbers[rPointer]==5)
-    {lPointer--; rPointer--;}
+    {rPointer--;}
     else if(numbers[lPointer]==5  && numbers[rPointer]!=5)
     {
       swap(numbers[lPointer], numbers[rPointer]);
-      rPointer--;
-    }    
+      lPointer++; rPointer--;
+    }
+    else
+      lPointer++;
   }
   return numbers;
 }
