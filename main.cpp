@@ -30,7 +30,15 @@ int main()
   std::vector<int> numbers {12, 5, 1, 5, 12, 7};
   fiveSort(numbers);
 
-  for(int i=0; i<numbers.size(); i++) 
-    std::cout<<numbers[i]<<" ";
+  std::vector<int> fives(20000, 5);
+  std::vector<int> fours(20000, 4);
+  std::vector<int> nums;
+  nums.reserve(fives.size() + fours.size());
+  nums.insert(nums.end(), fives.begin(), fives.end());
+  nums.insert(nums.end(), fours.begin(), fours.end());
+  fiveSort(nums);
+
+  for(int i=0; i<nums.size(); i++) 
+    std::cout<<nums[i]<<" ";
   return 0;
 }
